@@ -24,3 +24,24 @@ def test_classificar_triangulo_cenarios_validos(a, b, c, categoria_esperada):
     resultado = classificar_triangulo(a, b, c)
 
     assert resultado == categoria_esperada
+
+# --- [ Testes de Tratamento de Erros (Error Handling) ] --- #
+
+@pytest.mark.error_handling
+@pytest.mark.parametrize(
+    "a, b, c",
+    [
+        # Caso 1: Lado A Negativo
+        (-5, 5, 5),
+
+        # Caso 2: Lado B Negativo
+        (5, -5, 4),
+
+        # Caso 3: Lado C Negativo
+        (11, 4, -8),
+    ],
+    ids = ["lado_a_negativo", "lado_b_negativo", "lado_c_negativo"]
+)
+def test_classificar_triangulo_lados_negativos(a, b, c):
+    with pytest.raises(ValueError, match="Lados devem ser positivos"):
+        classificar_triangulo(a, b, c)
