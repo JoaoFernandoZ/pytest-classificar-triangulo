@@ -45,3 +45,22 @@ def test_classificar_triangulo_cenarios_validos(a, b, c, categoria_esperada):
 def test_classificar_triangulo_lados_negativos(a, b, c):
     with pytest.raises(ValueError, match="Lados devem ser positivos"):
         classificar_triangulo(a, b, c)
+
+@pytest.mark.error_handling
+@pytest.mark.parametrize(
+    "a, b, c",
+    [
+        # Caso 1: Lado A do tipo String
+        ("cinco", 5, 5),
+
+        # Caso 2: Lado B do tipo lista
+        (5, [5], 4),
+
+        # Caso 3: Lado C do tipo lista com String
+        (11, 4, ["oito"]),
+    ],
+    ids = ["lado_a_negativo", "lado_b_negativo", "lado_c_negativo"]
+)
+def test_classificar_triangulo_tipos_invalidos(a, b, c):
+    with pytest.raises(TypeError, match="Lados devem ser valores numéricos"):
+        classificar_triangulo(a, b, c)
