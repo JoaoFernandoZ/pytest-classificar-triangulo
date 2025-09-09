@@ -6,7 +6,7 @@ def classificar_triangulo(a: int|float, b: int|float, c: int|float) -> str:
     elif not (
         a + b > c and
         a + c > b and
-        c + b > a): ValueError("Lados não formam um triângulo")
+        b + c > a): raise ValueError("Lados não formam um triângulo")
 
     if a == b and b == c:
         return "Equilátero"

@@ -59,8 +59,21 @@ def test_classificar_triangulo_lados_negativos(a, b, c):
         # Caso 3: Lado C do tipo lista com String
         (11, 4, ["oito"]),
     ],
-    ids = ["lado_a_negativo", "lado_b_negativo", "lado_c_negativo"]
+    ids = ["lado_a_string", "lado_b_lista", "lado_c_lista_string"]
 )
 def test_classificar_triangulo_tipos_invalidos(a, b, c):
     with pytest.raises(TypeError, match="Lados devem ser valores numéricos"):
+        classificar_triangulo(a, b, c)
+
+@pytest.mark.error_handling
+@pytest.mark.parametrize(
+    "a, b, c",
+    [
+        # Caso 1: Lados inválidos para um triângulo
+        (3, 5, 2),
+    ],
+    ids = ["lados_invalidos"]
+)
+def test_classificar_triangulo_tipos_invalidos(a, b, c):
+    with pytest.raises(ValueError, match="Lados não formam um triângulo"):
         classificar_triangulo(a, b, c)
