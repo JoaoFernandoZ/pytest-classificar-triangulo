@@ -1,5 +1,5 @@
 # Pytest Classificação de Triângulo
-Um projeto usando pytest para realizar a cobertura de testes de uma função que classifica um triângulo com base no comprimento de seus lados.
+Um projeto de estudos, utilizando pytest para realizar a cobertura de testes de uma função que classifica um triângulo com base no comprimento de seus lados.
 
 ## Cenários de Teste Inclusos
 Happy Path: Testa cenários de sucesso com entradas válidas.<br>
