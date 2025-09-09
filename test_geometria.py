@@ -74,6 +74,6 @@ def test_classificar_triangulo_tipos_invalidos(a, b, c):
     ],
     ids = ["lados_invalidos"]
 )
-def test_classificar_triangulo_tipos_invalidos(a, b, c):
+def test_classificar_triangulo_lados_invalidos(a, b, c):
     with pytest.raises(ValueError, match="Lados não formam um triângulo"):
         classificar_triangulo(a, b, c)
